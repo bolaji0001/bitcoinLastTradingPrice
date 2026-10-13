@@ -6,7 +6,7 @@ import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
-const port = 3000;
+const port =  process.env.PORT || 3000;
 
 
 app.use(express.static("public"));
@@ -22,6 +22,6 @@ app.get("/", async (req,res)=>{
 })
 
 
-app.listen(3000, (req,res)=>{
-    console.log("App is listening on port 3000")
-})
+app.listen(port, () => {
+    console.log(`App is listening on port ${port}`);
+  })
